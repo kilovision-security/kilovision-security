@@ -1,0 +1,463 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Kilo Vision Security LLC provides armed and unarmed security for nightclubs, lounges, live venues, schools, and events across North Jersey." />
+  <title>Kilo Vision Security LLC | Armed & Unarmed Security</title>
+
+  <style>
+    :root{
+      --bg:#0a0a0a;
+      --card:#121212;
+      --muted:#b9b9b9;
+      --text:#f3f3f3;
+      --gold:#f4c542;
+      --gold2:#d7a92e;
+      --line:#242424;
+      --shadow: 0 10px 30px rgba(0,0,0,.45);
+      --radius: 18px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: radial-gradient(1200px 800px at 15% 10%, rgba(244,197,66,.12), transparent 55%),
+                  radial-gradient(900px 700px at 90% 20%, rgba(244,197,66,.08), transparent 60%),
+                  var(--bg);
+      color:var(--text);
+      line-height:1.45;
+    }
+    a{color:inherit; text-decoration:none}
+    a:hover{color:var(--gold)}
+
+    .wrap{max-width:1120px; margin:0 auto; padding:26px 18px 70px}
+
+    /* Top bar */
+    .top{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:14px;
+      border:1px solid var(--line);
+      background: rgba(18,18,18,.65);
+      backdrop-filter: blur(10px);
+      border-radius: 999px;
+      padding:10px 14px;
+      box-shadow: var(--shadow);
+    }
+    .brand{display:flex; align-items:center; gap:12px; min-width:0}
+    .logo{
+      width:44px; height:44px; border-radius: 12px;
+      border:1px solid rgba(244,197,66,.35);
+      background:
+        linear-gradient(135deg, rgba(244,197,66,.22), rgba(244,197,66,.05)),
+        radial-gradient(circle at 30% 30%, rgba(244,197,66,.25), transparent 45%),
+        #0f0f0f;
+      display:grid; place-items:center;
+      overflow:hidden;
+      flex:0 0 auto;
+    }
+    .logo span{font-weight:800; color:var(--gold); letter-spacing:.5px}
+    .brand h1{margin:0; font-size:14px; letter-spacing:.3px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+    .brand p{margin:0; font-size:12px; color:var(--muted); white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+
+    .ctaRow{display:flex; align-items:center; gap:10px; flex-wrap:wrap; justify-content:flex-end}
+    .pill{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:10px 12px;
+      border-radius: 999px;
+      border:1px solid var(--line);
+      background: rgba(10,10,10,.6);
+      font-size:13px;
+      color:var(--text);
+    }
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:10px 14px;
+      border-radius:999px;
+      border:1px solid rgba(244,197,66,.55);
+      background: linear-gradient(135deg, rgba(244,197,66,.18), rgba(244,197,66,.06));
+      font-weight:700;
+      letter-spacing:.2px;
+      transition: transform .12s ease, border-color .12s ease;
+    }
+    .btn:hover{transform: translateY(-1px); border-color: rgba(244,197,66,.85)}
+
+    /* Hero */
+    .hero{padding:44px 6px 10px}
+    .heroGrid{
+      display:grid;
+      grid-template-columns: 1.3fr .7fr;
+      gap:18px;
+      align-items:stretch;
+    }
+    .headline{font-size:44px; line-height:1.03; margin:0 0 12px}
+    .sub{color:var(--muted); font-size:16px; margin:0 0 22px; max-width:64ch}
+
+    .kicker{
+      display:inline-flex;
+      gap:10px;
+      align-items:center;
+      padding:7px 10px;
+      border-radius:999px;
+      border:1px solid rgba(244,197,66,.30);
+      background: rgba(244,197,66,.06);
+      color:var(--gold);
+      font-size:12px;
+      letter-spacing:.35px;
+      text-transform:uppercase;
+      margin-bottom:14px;
+    }
+
+    .card{
+      border:1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(18,18,18,.75);
+      box-shadow: var(--shadow);
+      padding:18px;
+    }
+    .card h3{margin:0 0 10px; font-size:14px; color:var(--gold); letter-spacing:.25px}
+    .card p{margin:0; color:var(--muted); font-size:13.5px}
+
+    .heroActions{display:flex; gap:10px; flex-wrap:wrap; align-items:center}
+    .btnSolid{
+      background: linear-gradient(135deg, rgba(244,197,66,.95), rgba(215,169,46,.92));
+      color:#141414;
+      border:1px solid rgba(244,197,66,.75);
+    }
+    .btnSolid:hover{color:#141414}
+
+    /* Sections */
+    section{padding:26px 6px}
+    .sectionTitle{display:flex; align-items:flex-end; justify-content:space-between; gap:12px; margin-bottom:14px}
+    .sectionTitle h2{margin:0; font-size:22px}
+    .sectionTitle .hint{margin:0; font-size:13px; color:var(--muted)}
+
+    .grid3{display:grid; grid-template-columns: repeat(3, 1fr); gap:12px}
+    .grid2{display:grid; grid-template-columns: repeat(2, 1fr); gap:12px}
+
+    ul.clean{margin:10px 0 0; padding:0 0 0 16px; color:var(--muted)}
+    ul.clean li{margin:6px 0}
+
+    .badge{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:8px 10px;
+      border-radius: 999px;
+      background: rgba(244,197,66,.06);
+      border: 1px solid rgba(244,197,66,.25);
+      color: var(--gold);
+      font-size: 12.5px;
+      margin-top:10px;
+    }
+
+    /* Contact */
+    .contactCard{display:grid; grid-template-columns: 1.2fr .8fr; gap:12px}
+    .contactCard .big{font-size:18px; margin:0 0 8px}
+    .contactLinks{display:flex; gap:10px; flex-wrap:wrap; margin-top:10px}
+
+    .form{display:grid; gap:10px}
+    .field{display:grid; gap:6px}
+    label{font-size:12px; color:var(--muted)}
+    input, textarea{
+      border-radius: 12px;
+      border:1px solid var(--line);
+      background: rgba(10,10,10,.55);
+      color:var(--text);
+      padding:10px 12px;
+      outline:none;
+    }
+    input:focus, textarea:focus{border-color: rgba(244,197,66,.6)}
+    textarea{min-height:110px; resize:vertical}
+
+    .foot{
+      margin-top:26px;
+      padding-top:18px;
+      border-top:1px solid var(--line);
+      color:var(--muted);
+      font-size:12px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      justify-content:space-between;
+    }
+
+    /* Responsive */
+    @media (max-width: 920px){
+      .heroGrid{grid-template-columns: 1fr}
+      .headline{font-size:38px}
+      .contactCard{grid-template-columns:1fr}
+    }
+    @media (max-width: 720px){
+      .grid3{grid-template-columns:1fr}
+      .grid2{grid-template-columns:1fr}
+      .headline{font-size:34px}
+      .top{border-radius: 22px}
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+
+    <header class="top">
+      <div class="brand">
+        <!-- Replace this block with your actual logo image if you want:
+             <img src="your-logo.png" alt="Kilo Vision Security" class="logoImg" />
+        -->
+        <div class="logo" aria-label="Kilo Vision Security logo placeholder"><span>KVP</span></div>
+        <div>
+          <h1>Kilo Vision Security LLC</h1>
+          <p>Armed & Unarmed Security • North Jersey</p>
+        </div>
+      </div>
+
+      <div class="ctaRow">
+        <div class="pill">📞 <a href="tel:15519991341">551-999-1341</a></div>
+        <div class="pill">✉️ <a href="mailto:kilovisionllc@gmail.com">kilovisionllc@gmail.com</a></div>
+        <a class="btn" href="#quote">Request Coverage</a>
+      </div>
+    </header>
+
+    <div class="hero">
+      <div class="heroGrid">
+        <div>
+          <div class="kicker">Presence • Prevention • Control</div>
+          <h2 class="headline">Security that keeps the night moving.</h2>
+          <p class="sub">
+            Kilo Vision Security provides professional armed and unarmed coverage for clubs, lounges, live venues,
+            schools, and events across North Jersey. Our approach is calm, controlled, and proactive — so problems
+            stay small and your operation stays smooth.
+          </p>
+
+          <div class="heroActions">
+            <a class="btn btnSolid" href="tel:15519991341">Call Now</a>
+            <a class="btn" href="#services">See Services</a>
+            <a class="btn" href="#pricing">Pricing</a>
+          </div>
+
+          <div class="badge">Owner‑Operated • Teams 1–7 • Male & Female Guards Available</div>
+        </div>
+
+        <aside class="card">
+          <h3>Quick Coverage Snapshot</h3>
+          <p>
+            • Door + ID screening<br />
+            • Floor security + crowd flow<br />
+            • De‑escalation + incident prevention<br />
+            • Armed or unarmed staffing<br />
+            • Clubs, lounges, live venues, events
+          </p>
+        </aside>
+      </div>
+    </div>
+
+    <section id="about">
+      <div class="sectionTitle">
+        <h2>Who We Are</h2>
+        <p class="hint">Professional. Discreet. Consistent.</p>
+      </div>
+      <div class="card">
+        <p>
+          Kilo Vision Security LLC is a New Jersey–based security company providing armed and unarmed services for
+          nightlife and high‑traffic environments. We don’t rely on intimidation. We rely on experience, situational
+          awareness, and controlled response.
+          <br /><br />
+          Kilo Vision is owner‑operated. The same person you speak with oversees staffing, planning, and execution
+          for each job — so you’re not getting random guards who don’t know your venue.
+        </p>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="sectionTitle">
+        <h2>Services</h2>
+        <p class="hint">Built for real crowds and real nights.</p>
+      </div>
+      <div class="grid3">
+        <div class="card">
+          <h3>Nightclubs & Lounges</h3>
+          <p>Door security, ID screening, floor coverage, patron management, and late‑night incident prevention.</p>
+          <ul class="clean">
+            <li>Door + ID screening</li>
+            <li>Floor security</li>
+            <li>Patron removal when necessary</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Live Music & Events</h3>
+          <p>Crowd flow, surge control, stage/perimeter security, and promoter/staff protection.</p>
+          <ul class="clean">
+            <li>Crowd flow + surge control</li>
+            <li>Stage and performer area security</li>
+            <li>Event series coverage</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Schools & High‑Risk Locations</h3>
+          <p>Access control, conflict intervention, and professional restraint in high‑pressure environments.</p>
+          <ul class="clean">
+            <li>Access control</li>
+            <li>De‑escalation</li>
+            <li>Incident response</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="approach">
+      <div class="sectionTitle">
+        <h2>Our Approach</h2>
+        <p class="hint">Security should never kill the vibe.</p>
+      </div>
+      <div class="grid2">
+        <div class="card">
+          <h3>Prevention First</h3>
+          <p>
+            We focus on early recognition of problems, calm verbal command, and controlled presence. Most issues are
+            handled before they turn into incidents.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Professional Response</h3>
+          <p>
+            When action is required, it’s decisive, appropriate, and professional. We work with management,
+            bartenders, promoters, and staff to keep operations moving.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="pricing">
+      <div class="sectionTitle">
+        <h2>Pricing</h2>
+        <p class="hint">Clear tiers. Flat rates available.</p>
+      </div>
+      <div class="grid3">
+        <div class="card">
+          <h3>Tier 1</h3>
+          <p>Standard Coverage</p>
+          <ul class="clean">
+            <li>Small lounges / low‑risk events</li>
+            <li>1–2 unarmed guards</li>
+            <li>$40–$45 per hour per guard</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Tier 2</h3>
+          <p>Full Floor Coverage</p>
+          <ul class="clean">
+            <li>Clubs / live venues / high traffic</li>
+            <li>2–4 guards (armed or unarmed)</li>
+            <li>Unarmed: $45–$50 • Armed: $60–$65</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Tier 3</h3>
+          <p>High‑Risk / Premium</p>
+          <ul class="clean">
+            <li>Large events / promoter nights</li>
+            <li>4–7 guards with lead supervision</li>
+            <li>Unarmed: $50–$55 • Armed: $65–$75</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:12px">
+        <h3>Flat Night Rates</h3>
+        <p>
+          Flat rates are available for regular nights and event series. Weekly and monthly contract options are available.
+          Contact us with your venue details for a fast quote.
+        </p>
+      </div>
+    </section>
+
+    <section id="compliance">
+      <div class="sectionTitle">
+        <h2>Insurance & Compliance</h2>
+        <p class="hint">COIs available upon request.</p>
+      </div>
+      <div class="card">
+        <p>
+          Kilo Vision Security LLC operates in compliance with applicable New Jersey security regulations.
+          Appropriate insurance coverage is maintained, and Certificates of Insurance (COIs) can be provided upon request
+          prior to services.
+          <br /><br />
+          Kilo Vision Security LLC operates as an independent contractor.
+        </p>
+      </div>
+    </section>
+
+    <section id="quote">
+      <div class="sectionTitle">
+        <h2>Request Coverage</h2>
+        <p class="hint">Fast response. Clear pricing.</p>
+      </div>
+
+      <div class="contactCard">
+        <div class="card">
+          <p class="big"><b>Contact</b></p>
+          <p>
+            Michael Dewhart, Founder & Lead Operator<br />
+            📞 <a href="tel:15519991341">551-999-1341</a><br />
+            ✉️ <a href="mailto:kilovisionllc@gmail.com">kilovisionllc@gmail.com</a>
+          </p>
+          <div class="contactLinks">
+            <a class="btn btnSolid" href="tel:15519991341">Call</a>
+            <a class="btn" href="mailto:kilovisionllc@gmail.com">Email</a>
+          </div>
+          <p style="margin-top:12px; color:var(--muted); font-size:12px">
+            Tip: If you want this form to send messages to you automatically, connect it to a service like Formspree,
+            Web3Forms, or your website host’s contact form tool.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Quick Quote Form</h3>
+          <form class="form" onsubmit="return handleSubmit(event)">
+            <div class="field">
+              <label for="name">Name</label>
+              <input id="name" name="name" type="text" placeholder="Your name" required />
+            </div>
+            <div class="field">
+              <label for="venue">Venue / Event</label>
+              <input id="venue" name="venue" type="text" placeholder="Venue name + city" required />
+            </div>
+            <div class="field">
+              <label for="details">Details</label>
+              <textarea id="details" name="details" placeholder="Date, hours, expected crowd size, armed/unarmed, anything important" required></textarea>
+            </div>
+            <button class="btn btnSolid" type="submit">Send Request</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <footer class="foot">
+      <div>© <span id="year"></span> Kilo Vision Security LLC</div>
+      <div>Armed & Unarmed Security • North Jersey</div>
+    </footer>
+
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // This keeps your landing page “live” without needing a backend.
+    // For real form delivery, connect to Formspree/Web3Forms/etc.
+    function handleSubmit(e){
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const venue = document.getElementById('venue').value.trim();
+      const details = document.getElementById('details').value.trim();
+
+      const subject = encodeURIComponent('Security Coverage Request');
+      const body = encodeURIComponent(
+        `Name: ${name}\nVenue/Event: ${venue}\n\nDetails:\n${details}\n\n— Sent from Kilo Vision landing page`
+      );
+
+      window.location.href = `mailto:kilovisionllc@gmail.com?subject=${subject}&body=${body}`;
+      return false;
+    }
+  </script>
+</body>
+</html>
