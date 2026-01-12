@@ -48,6 +48,15 @@
     .brand{display:flex; align-items:center; gap:12px; min-width:0}
     .logo{
       width:44px; height:44px; border-radius: 12px;
+      .logoImg{
+  width:44px;
+  height:44px;
+  border-radius:12px;
+  object-fit:contain;
+  border:1px solid rgba(244,197,66,.35);
+  background:#0f0f0f;
+  padding:4px;
+}
       border:1px solid rgba(244,197,66,.35);
       background:
         linear-gradient(135deg, rgba(244,197,66,.22), rgba(244,197,66,.05)),
@@ -204,7 +213,7 @@
         <!-- Replace this block with your actual logo image if you want:
              <img src="your-logo.png" alt="Kilo Vision Security" class="logoImg" />
         -->
-        <div class="logo" aria-label="Kilo Vision Security logo placeholder"><span>KVP</span></div>
+        <img src="logo.png" alt="Kilo Vision Security Logo" class="logoImg">
         <div>
           <h1>Kilo Vision Security LLC</h1>
           <p>Armed & Unarmed Security • North Jersey</p>
